@@ -1,0 +1,29 @@
+on:
+  push:
+    - main
+  pull_requests:
+    branches:
+      - main
+
+jobs:
+  Build-Test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check format with Prettier
+        run: pnpm run prettier-check
+
+      - name: Create .env
+        run: touch .env
+
+      - name: Build check test
+        run: pnpm build
