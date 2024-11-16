@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, User, ChevronDown } from "lucide-react";
-import { Bussineses, Category, Department } from "@/types/type";
+import { Businesses, Category, Department } from "@/types/type";
 import { categories } from "@/types/schema/post-form";
 import { useRouter } from "next/router";
 import { departments, users } from "@/utils/mock";
@@ -11,7 +11,7 @@ export default function Suggestion() {
   const [selectedDepartment, setSelectedDepartment] = useState<Department | "">(
     ""
   );
-  const [selectedBusiness, setSelectedBusiness] = useState<Bussineses | "">("");
+  const [selectedBusiness, setSelectedBusiness] = useState<Businesses | "">("");
   const [selectedCategory, setSelectedCategory] = useState<Category>("良い点");
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -24,7 +24,7 @@ export default function Suggestion() {
   };
 
   const handleBusinessChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedBusiness(e.target.value as Bussineses);
+    setSelectedBusiness(e.target.value as Businesses);
   };
 
   useEffect(() => {
